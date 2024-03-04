@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class WebPostsController extends Controller
 {
@@ -10,9 +11,7 @@ class WebPostsController extends Controller
     {
         $posts = $this->postsService->getPosts();
 
-        return view('blog.posts-index')->with([
-            'posts' => $posts,
-        ]);
+        return view('blog.posts-index', compact('posts'));
     }
 
     public function create()
@@ -21,6 +20,7 @@ class WebPostsController extends Controller
     }
 
     public function publishPost(Request $request){
+        
         $rules = [
         'titulo' => 'required',
         'descricao' => 'required',
@@ -30,6 +30,8 @@ class WebPostsController extends Controller
 
         $postData = $this->validate($request, $rules);
 
+        // dd($postData);
+
         if($request->file('imagem')){
             $file = $request->file('imagem');
             $filename = date('YmdHi').$file->getClientOriginalName();
@@ -37,14 +39,14 @@ class WebPostsController extends Controller
             $postData['imagem'] = $filename;
         }
 
-        dd($postData);
+        // dd($postData);
 
         $postData = $this->postsService->publishPosts($postData);
 
         return redirect()->route('post-index');
     }
 
-    public function showProduct($id)
+    public function showPost($id)
     {
         $post = $this->postsService->getPost($id);
 

@@ -36,6 +36,10 @@ trait ConsumesExternalServices
 			$response = $this->decodeResponse($response);
 		}
 
+		if(method_exists($this, 'checkIfErrorResponse')){
+			$this->checkIfErrorResponse($response);
+		}
+
 		return $response;
 	}
     

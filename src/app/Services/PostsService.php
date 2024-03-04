@@ -22,6 +22,13 @@ class PostsService
         return $decodedResponse->data ?? $decodedResponse;
     }
 
+    public function checkIfErrorResponse($response)
+    {
+        if(isset($response->error)){
+            throw new \Exception("Erro: {$response->error}");
+        }
+    }
+
     public function getPosts()
     {
         return $this->makeRequest('GET', 'posts');
@@ -32,9 +39,9 @@ class PostsService
         return $this->makeRequest('GET', "posts/{$id}");
     }
 
-    public function publishPosts($productData)
+    public function publishPosts($postData)
     {
-        return $this->makeRequest('POST', 'posts', [], $productData, [], $hasFile = true);
+        return $this->makeRequest('POST', 'posts', [], $postData, [], $hasFile = true);
     }
 
 

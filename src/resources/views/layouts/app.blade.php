@@ -32,6 +32,19 @@
             </div>
         </nav>
 
+        @if (session()->has('success'))
+
+            <div class="alert alert-success">
+                <button class="close" type="button" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <ul>
+                    @foreach (session()->get('success') as $msg)
+                        <li>{{ $msg }}</li>
+                    @endforeach
+                </ul>
+            </div>
+
+        @endif
+
         <main class="py-4">
             @yield('content')
         </main>

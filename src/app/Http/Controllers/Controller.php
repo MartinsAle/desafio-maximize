@@ -12,10 +12,10 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-     protected $postsService;
+    protected $postsService;
 
-     public function __construct(PostsService $postsService)
-     {
-     $this->postsService = $postsService;
-     }
+    public function __construct(PostsService $postsService)
+    {
+        $this->postsService = $postsService;
+    }
 }

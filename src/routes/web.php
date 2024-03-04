@@ -15,6 +15,6 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', [WebPostsController::class, 'index'])->name('post-index');
-Route::get('/post', [WebPostsController::class, 'show'])->name('post-single');
+Route::get('/post-single/{id}', [WebPostsController::class, 'showPost'])->name('post-single');
 Route::get('/post-create', [WebPostsController::class, 'create'])->name('post-create');
-Route::post('/publish-post', [WebPostsController::class, 'publishPost'])->name('publish-post');
+Route::post('/publishPost', [WebPostsController::class, 'publishPost'])->name('publishPost');
