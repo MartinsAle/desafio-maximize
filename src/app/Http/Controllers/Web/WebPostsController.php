@@ -11,6 +11,8 @@ class WebPostsController extends Controller
     {
         $posts = $this->postsService->getPosts();
 
+        // dd($posts);
+
         return view('blog.posts-index', compact('posts'));
     }
 

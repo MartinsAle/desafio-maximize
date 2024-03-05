@@ -24,6 +24,7 @@ Acesse o caminho de pastas da aplicação no seu terminal ou prompt de comando e
 - docker compose run -d --rm composer dump-autoload (para carregar as classes)
 - docker compose run -d --rm artisan key:generate (para gerar a app-key da aplicação)
 - docker compose run -d --rm artisan migrate (para executar a criação das tabelas no banco)
+- docker compose run -d --rm artisan db:seed (para criar dados no banco)
 
 Executados todos os comandos na sequência acima, acesse a aplicação pelo navegador no endereço: localhost:8000.  
 Se todos os comandos forem executados sem erros será possível ver a aplicação rodando com sucesso.

@@ -12,7 +12,7 @@
                 </nav>
                 <div class="post-content">
                     <h1 class="h1 fw-bold mb-5 mt-5">{{$post->titulo}}</h1>
-                    <img class="img-fluid mb-4" src="{{ url($post->imagem ? 'images/' . $post->imagem : 'https://placehold.co/600x600') }}" alt="">
+                    <img class="img-fluid mb-4" src="{{ url($post->imagem ? 'images/' . $post->imagem : 'https://placehold.co/800x380') }}" alt="">
                     <p class="mb-5 fw-bold">{{$post->descricao }}</p>
                     <p class="mb-5">{{$post->texto_completo }}</p>
                     <hr class="hr hr-blurry" />
